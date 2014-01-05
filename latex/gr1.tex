@@ -1,0 +1,44 @@
+
+                \documentclass[11pt]{scrartcl}
+                \usepackage{tkz-graph}
+                \begin{document}
+                \begin{center}
+                \begin{tikzpicture}
+                \SetVertexNormal[Shape      = circle, FillColor  = orange, LineWidth  = 2pt]
+                \SetUpEdge[lw  = 2pt,  color      = black,  labelcolor = white,  labeltext  = red, labelstyle = {sloped,draw,text=blue}]
+                \GraphInit[vstyle=Normal]
+                \SetGraphUnit{10}
+
+                
+ 
+                
+                \tikzset{VertexStyle/.append  style={fill}}
+                \Vertex[x=1.8 ,y=6.1]{edge-orig}
+          
+                
+                \tikzset{VertexStyle/.append  style={fill}}
+                \Vertex[x=7.2 ,y=16.0]{edge-target}
+          
+                \tikzset{EdgeStyle/.style={->}}
+                \Edge[label=$1.00$](edge-orig)(edge-target)
+
+          
+
+                
+                \tikzset{VertexStyle/.append  style={fill}}
+                \Vertex[x=1.8 ,y=6.1]{edge-orig}
+          
+                
+                \tikzset{VertexStyle/.append  style={fill}}
+                \Vertex[x=13.9 ,y=4.8]{nd1}
+          
+                \tikzset{EdgeStyle/.style={->}}
+                \Edge[label=$0.50$](edge-orig)(nd1)
+
+          
+
+
+                \end{tikzpicture}
+                \end{center}
+                \end{document}
+          

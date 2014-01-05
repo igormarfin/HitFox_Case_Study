@@ -1,0 +1,30 @@
+# CREATE .egg file
+
+python setup.py bdist_egg
+
+
+# EASY_INSTALL METHOD (requries the .egg file)
+
+myplace=/mnt/WorkingPlace/Case_Study/hitfox/python/test
+script_dir=/mnt/WorkingPlace/Case_Study/hitfox/bin
+python_prefix=lib/python2.7/site-packages
+mkdir -p ${myplace}/${python_prefix}
+sudo sh -c "export PYTHONPATH=${myplace}/${python_prefix}:$PYTHONPATH;  easy_install --prefix=${myplace}  HitFox_Case_Study-0.1-py2.7.egg "
+
+# install script into different folder
+sudo sh -c "export PYTHONPATH=${myplace}/${python_prefix}:$PYTHONPATH;  easy_install --install-dir=${myplace}/${python_prefix} --script-dir=${script_dir}  dist/HitFox_Case_Study-0.1-py2.7.egg "
+
+
+# SETUP.PY METHOD (requires the folder with srcs, here the project folder is 'ProblemA' )
+
+mkdir -p ${myplace}/${python_prefix}
+export  PYTHONPATH=${myplace}/${python_prefix}:$PYTHONPATH
+python setup.py install --prefix=${myplace} 
+
+
+# PIP METHOD
+
+#first, create a tgz or folder project:
+python setup.py sdist
+
+sudo sh -c "export PYTHONPATH=${myplace}/${python_prefix}:$PYTHONPATH; pip install -e /mnt/WorkingPlace/Case_Study/hitfox/python/HitFox\ Case\ Study-0.1/  --install-option=\"--prefix=${myplace}\" "
