@@ -5,18 +5,28 @@ TMPDIR = $$HOME/tmp/$(PROJECT)
 TMPDIR2SVN = $$HOME/tmp/$(PROJECT)/SVN
 CURDIR=${shell pwd }
 Dirs		:= ${shell find . -type d | grep -v ".svn" | grep  "./"}
+<<<<<<< HEAD
 
 ### SVN repo settings
 SVNREPO 	:= https://my-code-iggy-floyd-de.googlecode.com/svn/branches
 SVNUSER	       	:= iggy.floyd.de@gmail.com
 
 ### GIT repo settings
+=======
+SVNREPO 	:= https://my-code-iggy-floyd-de.googlecode.com/svn/branches
+SVNUSER	       	:= iggy.floyd.de@gmail.com
+
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 GITREPOPATH     := https://api.github.com/user/repos
 GITREPO         := $(PROJECT)
 GITUSER         :=   igormarfin
 
 
+<<<<<<< HEAD
 ### Compilers settings and C/C++ src/includes
+=======
+### Compilers settings
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 
 CXX		:= g++ 
 CPPFLAGS	:=-g 
@@ -57,7 +67,11 @@ FLAGS		:= -std=c++0x
 
 
 
+<<<<<<< HEAD
 #### Specific settings  for C/C++ executables
+=======
+#### Specific settings
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 DEPENDENCE.DivisorsHash		      := 
 DEPENDENCE.ProblemA		      := $(INC_DIR)/DivisorsHash.h 
 DEPENDENCE.Node	  		      := $(INC_DIR)/Node_Edge.cc
@@ -72,7 +86,10 @@ FLAGS.ProblemB			      := -DINT_MAX=100000
 all: rm_python_dirs   $(PROGS_IN_BIN) $(PYTHON_PROGS_IN_BIN)
 
 
+<<<<<<< HEAD
 #### Specific setting for python executables
+=======
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 DEPENDENCE.ProblemB_python	      := DEPENDENCE.ProblemB_python
 
 
@@ -81,7 +98,10 @@ DEPENDENCE.ProblemB_python:
 
 	
 
+<<<<<<< HEAD
 #### To clear python directories
+=======
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 
 rm_python_dirs:
 	- rm -r $(shell echo `pwd`/$(PYTHON_DIR))/dist
@@ -128,6 +148,10 @@ $(foreach prog,$(PROGS),$(eval $(call make-goal,$(prog),$(SRC_DIR)/$(prog).cc, $
 
 
 ###SVN support
+<<<<<<< HEAD
+=======
+
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 makeSVN:
 	 svn mkdir  $(SVNREPO)/$(PROJECT) --username $(SVNUSER) ;\
 
@@ -155,6 +179,11 @@ Commit2SVN:
 
 
 ##########Git support
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 makeGit:
 	curl -u '$(GITUSER)' $(GITREPOPATH)  -d '{"name":"$(GITREPO)"}'
 
@@ -162,6 +191,10 @@ Commit2Git:
 	git init
 	git add ./
 	git commit -m "adding to GitHub.com"
+<<<<<<< HEAD
+	git pull origin master
+=======
+>>>>>>> 10c5454764052fa98fdcfbe8661d14a35a8152ba
 	git remote add origin git@github.com:$(GITUSER)/$(GITREPO).git
 	git push -u origin master
 

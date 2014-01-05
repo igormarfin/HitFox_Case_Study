@@ -162,7 +162,6 @@ Commit2Git:
 	git init
 	git add ./
 	git commit -m "adding to GitHub.com"
-	git pull origin master
 	git remote add origin git@github.com:$(GITUSER)/$(GITREPO).git
 	git push -u origin master
 

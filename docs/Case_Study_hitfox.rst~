@@ -975,7 +975,7 @@ the GUI using ``Tkinter`` windows manager [tkineter]_\ .    Running the
 
 To install properly ``ProblemA.py`` and   ``DivisorsHash.py``  modules, we organized them
 in the package ``ProblemA`` with ``__init__.py`` support [python_package]_\ .
-This is a tree of the package [tree]_\ : ::
+This is a tree of the package [tree]_\ ::
 
 
    scripts/ProblemA/
@@ -1765,8 +1765,8 @@ References
    http://www.cplusplus.com/forum/beginner/11510/
 
 
-.. [tkineter] Building a basic GUI application step-by-step in Python 
-   with Tkinter and wxPython
+.. [tkineter] Building a basic GUI application step-by-step in Python with Tkinter and wxPython
+
    http://sebsauvage.net/python/gui/#import
 
 
