@@ -1,0 +1,59 @@
+>>> class Node(object):
+...  def __init__(self,x): self.x=x
+...  def __eq__(self,other): return self.x == other.x
+...  def __hash__(self): return self.x
+...  def __cmp__(self,other): return cmp(self.x,other.x)
+...  def __repr__(self): return str(self.x)
+... 
+>>> n1=Node(1)
+>>> n2=Node(2)
+>>> n3=Node(3)
+>>> n4=Node(4)
+>>> n5=Node(2)
+>>> n6=Node(1)
+>>> n7=Node(7)
+>>> n8=Node(5)
+>>> vvv=set([n1,n2,n5,n6,n7,n8,n3,n4])
+>>> vvv
+set([1, 2, 3, 4, 5, 7])
+>>> vvv.pop().x
+1
+>>> vvv.pop().x
+2
+>>> vvv.pop().x
+3
+>>> vvv.pop().x
+4
+>>> vvv.pop().x
+5
+>>> vvv.pop().x
+7
+
+
+>>> class Node(object):
+...  def __init__(self,x,y): self.x=x; self.y=y
+...  def __eq__(self,other): return self.x == other.x
+...  def __hash__(self): return self.x
+...  def __repr__(self): return str(self.x)+"_"+str(self.y)
+... 
+>>> n1=Node(1,2)
+>>> n2=Node(2,2)
+>>> n3=Node(3,1)
+>>> n4=Node(4,6)
+>>> n5=Node(5,6)
+>>> n6=Node(7,6)
+
+>>> def mycmp(nd1,nd2):
+...  return cmp(nd1.x,nd2.x) or ( not (cmp(nd1.x,nd2.x)) and cmp(nd1.y,nd2.y))
+... 
+>>> vvv=set([n1,n1,n3,n6,n2,n5])
+>>> vvv
+set([1_2, 2_2, 3_1, 5_6, 7_6])
+>>> n10=Node(0.5,8)
+>>> n11=Node(5.6,8)
+>>> vvv=set([n10,n1,n11,n1,n3,n6,n2,n5])
+>>> vvv
+set([0.5_8, 1_2, 2_2, 3_1, 5.6_8, 7_6, 5_6])
+>>> sorted(vvv,cmp=mycmp)
+[0.5_8, 1_2, 2_2, 3_1, 5_6, 5.6_8, 7_6]
+
