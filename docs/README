@@ -1,0 +1,66 @@
+
+
+# 3 Tested at http://sqlfiddle.com
+
+
+CREATE TABLE CLICKS
+(
+click_id int,
+timestamp TIMESTAMP,
+country_code char(2),
+devise varchar(255)
+);
+
+CREATE TABLE CONVERSIONS
+(
+conver_id int,
+click_id int,
+timestamp TIMESTAMP,
+amount FLOAT(2),
+);
+
+
+CREATE TABLE CLICKS 
+	(
+     click_id int auto_increment primary key, 
+     timestamp TIMESTAMP,
+     country_code varchar(2),
+     device varchar(20) 
+    );
+
+INSERT INTO CLICKS
+(timestamp, country_code,device)
+VALUES
+('2013-11-22 23:58:01', 'DE','ios'),
+('2013-11-22 23:58:02', 'DE','ios'),
+('2013-11-22 23:58:24', 'US','android'),
+('2013-11-22 23:58:24', 'US','android2'),
+('2013-11-22 23:58:26', 'DE','ios');
+
+
+CREATE TABLE CONVERSIONS 
+	(
+     conversion_id int auto_increment primary key, 
+     click_id int , 
+     timestamp TIMESTAMP,
+     amount float(2) 
+    );
+
+
+INSERT INTO CONVERSIONS
+(click_id, timestamp,amount)
+VALUES
+(1,'2013-11-22 23:59:01',1.25),
+(5,'2013-11-22 23:59:24',0.69),
+(4,'2013-11-22 23:59:24',0.69),
+(3,'2013-11-22 23:59:28',0.54);
+
+
+Answers:
+
+ 3.1 SELECT  * FROM CONVERSIONS  JOIN CLICKS ON CONVERSIONS.click_id=CLICKS.click_id AND CLICKS.device="ios" 
+
+ 3.2 SELECT  COUNT(conversion_id),CLICKS.country_code, CLICKS.device  FROM CONVERSIONS  JOIN CLICKS ON CONVERSIONS.click_id=CLICKS.click_id AND  DAY(CONVERSIONS.timestamp)=22 GROUP BY CLICKS.country_code, CLICKS.device
+
+ 3.3 SELECT  SUM(CONVERSIONS.amount),CLICKS.country_code, CLICKS.device  FROM CONVERSIONS  JOIN CLICKS ON CONVERSIONS.click_id=CLICKS.click_id AND CLICKS.country_code="US"
+

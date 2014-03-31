@@ -1,0 +1,3 @@
+Name: HitFox_Case_Study/ProblemA
+Sealed: true
+Main-Class: ProblemA
