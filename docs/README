@@ -1,20 +1,4 @@
-Task  # 1
 
-	make
-	bin/DivisorsHash
-
-Task # 2
-
-	I can only say that I've tried to develop the algorithm on the Breadth-first_search method (BFS)
-
-		http://en.wikipedia.org/wiki/Breadth-first_search
-
-	Example of such algo is here
-
-	http://blogse.quora.com/Using-BFS-to-find-shortest-path-C++
-
-	... spending all my time, sorry, but
-		Unfortunately I didn't have enough time to find all compilation errors
 
 
 
